@@ -1,0 +1,30 @@
+# Private workstation and laboratory configuration
+config/rig_wiring.json
+config/*.bak
+config/*.tmp
+user_data/
+logs/
+tmp/
+
+# Generated App Designer and runtime files
+HamamatsuImagingApp.mlapp
+ui_preview.png
+*.asv
+*.autosave
+matlab_local_cluster_jobs/
+
+# Acquisition data, derivatives, and conversion outputs
+*.bin
+*.raw
+*.part
+*.info.json
+*.tif
+*.tiff
+*.mat
+*.avi
+
+# Local verification material
+tests/
+diagnostics/
+reports/
+test_artifacts/

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.4.0",
+  "source_notes": [
+    "Copy this file to rig_wiring.json and replace every placeholder with this workstation's verified physical wiring.",
+    "rig_wiring.json is intentionally Git-ignored: it contains local ports, device identities, and network addresses.",
+    "Do not use automatic serial-port discovery."
+  ],
+  "daq": {
+    "device_id": "Dev1",
+    "input_sample_rate_hz": 2000,
+    "dummy_input": "ai0",
+    "light_active_value": 1,
+    "camera_start_pulse_seconds": 0.001
+  },
+  "camera": {
+    "serials": ["CAMERA1_SERIAL", "CAMERA2_SERIAL"],
+    "bus_tokens": ["CAMERA1_BUS_TOKEN", "CAMERA2_BUS_TOKEN"]
+  },
+  "digital_outputs": [
+    {"tag":"camera1","port":"port0/line0","label":"Camera 1 start"},
+    {"tag":"camera2","port":"port0/line1","label":"Camera 2 start"},
+    {"tag":"visual_stamp","port":"port0/line2","label":"Visual-frame stamp"},
+    {"tag":"dmd_trigger","port":"","label":"Optional DMD external trigger"},
+    {"tag":"led_flicker_enable","port":"port0/line3","label":"LED flicker enable"},
+    {"tag":"light_Laser405","port":"port0/line4","label":"Imaging/stimulation light 1 gate"},
+    {"tag":"light_Laser445","port":"port0/line5","label":"Imaging/stimulation light 2 gate"},
+    {"tag":"light_LEDcyan","port":"port0/line6","label":"LED cyan gate"},
+    {"tag":"light_LEDgreen","port":"port0/line7","label":"LED green gate"},
+    {"tag":"light_LEDred","port":"port0/line8","label":"LED red gate"}
+  ],
+  "analog_outputs": [
+    {"tag":"light_stim_AO_Laser405","port":"ao0","label":"Light 1 analog intensity","minimum_voltage":0,"maximum_voltage":5,"safe_voltage":0,"frequency_hz_per_volt":0},
+    {"tag":"light_stim_AO_Laser445","port":"ao1","label":"Light 2 analog intensity","minimum_voltage":0,"maximum_voltage":5,"safe_voltage":0,"frequency_hz_per_volt":0},
+    {"tag":"led_flicker_frequency","port":"ao2","label":"LED flicker frequency command","minimum_voltage":0,"maximum_voltage":5,"safe_voltage":0,"frequency_hz_per_volt":1}
+  ],
+  "counter_inputs": {
+    "camera1_vsync": "ctr0",
+    "camera2_vsync": "ctr1",
+    "visual_stamp": "ctr2",
+    "dmd_out1": ""
+  },
+  "serial": {
+    "obis405": "COM1",
+    "obis445": "COM2",
+    "spectrax": "COM3"
+  },
+  "dmd_network": {
+    "host_address": "127.0.0.1",
+    "host_port": 6002,
+    "target_address": "127.0.0.1",
+    "target_port": 6003
+  }
+}
